@@ -1,0 +1,324 @@
+<html>
+<head>
+<title>Imagic: Text-Based Real Image Editing with Diffusion Models</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@200&display=swap" rel="stylesheet"> 
+<style type="text/css">
+.content {
+    width:930px;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}
+h1 {
+    font-weight: 600;
+}
+table.authors {
+    width:90%;
+    text-align:center;
+}
+table.authors > tr > td, table.authors > tbody > tr > td {
+    width:25%;
+}
+.authors a, .lnk {
+    color:black;
+    text-decoration:underline;
+}
+.authors a:hover, .lnk:hover {
+    color:gray;
+    text-decoration:underline;
+}
+.btn {
+    color:black;
+    text-decoration:none;
+}
+.btn:hover {
+    color:gray;
+    text-decoration:none;
+}
+table.demo1 {
+    width:90%;
+    text-align:center;
+}
+.demo1 img {
+    width:300px;
+}
+td.prompt {
+    width:100%;
+    text-align:center;
+    font-family: monospace;
+    font-size:150%;
+}
+td.prompt a {
+    color:#ddd;
+    text-decoration:none;
+}
+td.prompt a:hover, td.prompt a.active {
+    color:black;
+    text-decoration:none;
+}
+.img-stack {
+    position:relative;
+    display: block;
+    width:300px;
+    height:300px;
+}
+.img-stack img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.img-stack img.active {
+    z-index: 1;
+}
+.img-stack .overlay {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transition: opacity .2s;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: white;
+}
+.carousel {
+    position:relative;
+    width:650px;
+    height:385px;
+    overflow:hidden;
+}
+.carousel > table {
+    position:absolute;
+    top: 0px;
+    transition: left 1s;
+    width:650px;
+}
+.carousel_table td {
+    text-align:center;
+}
+.carousel_table td:nth-child(2) {
+    font-size:150%;
+}
+pre {
+    background-color:#eee;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 10px;
+white-space: break-spaces;
+width:80%;
+text-align:left;
+}
+@media only screen and (max-width: 930px) {
+    .content { width:100% !important; }
+}
+</style>
+<script type="text/javascript">
+  var curr_idx = 0;
+  var num_tables = 5;
+  function move(direction) {
+      if (curr_idx == 0 && direction < 0) {
+	  move(num_tables - 1);
+	  return;
+      }
+      if (curr_idx == num_tables - 1 && direction > 0) {
+	  move(-1 * (num_tables - 1));
+	  return;
+      }
+      tables = document.getElementsByClassName("carousel_table");
+      for(var i = 0; i < tables.length; i++) {
+	  tables[i].style.left = (parseInt(tables[i].style.left.substring(0, tables[i].style.left.length - 2)) - direction * 650).toString() + "px";
+      }
+      curr_idx += direction;
+  }
+  function hideOverlay(classname) {
+      document.getElementById(classname + "_overlay").style.opacity = "0";
+  }
+  function activate(classname, idx, max) {
+      document.getElementById(classname + "_overlay").style.opacity = "1";
+      setTimeout(function() {
+	  for(var i = 1; i <= max; i++) {
+	      document.getElementById(classname + "_" + i.toString()).className = "";
+	      document.getElementById(classname + "_text_" + i.toString()).className = "";
+	  }
+	  document.getElementById(classname + "_" + idx.toString()).className = "active";
+	  document.getElementById(classname + "_text_" + idx.toString()).className = "active";
+	  setTimeout(hideOverlay, 200, classname);
+      }, 200);
+  }
+  var moving = true;
+  function autoMove() {
+      if(moving) {
+	  move(1);
+      }
+      setTimeout(autoMove, 4000);
+  }
+  function beginMoving() {
+      setTimeout(autoMove, 4000);
+  }
+</script>
+</head>
+<body dir="ltr" onload="beginMoving();">
+<center><div class="content">
+    <center>
+      <h1>Imagic: Text-Based Real Image Editing with Diffusion Models</h1>
+      <table class="authors">
+	<tr>
+	  <td><a href="https://bahjat-kawar.github.io/">Bahjat Kawar</a><sup>*</sup></td>
+	  <td><a href="https://scholar.google.com/citations?user=I2qheksAAAAJ">Shiran Zada</a><sup>*</sup></td>
+	  <td><a href="https://scholar.google.com/citations?user=gypv57sAAAAJ">Oran Lang</a></td>
+	  <td><a href="https://scholar.google.com/citations?hl=en&user=lbo_R54AAAAJ">Omer Tov</a></td>
+	</tr><tr>
+	  <td><a href="https://research.google/people/107664/">Huiwen Chang</a></td>
+	  <td><a href="https://www.weizmann.ac.il/math/dekel/home">Tali Dekel</a></td>
+	  <td><a href="https://research.google/people/InbarMosseri/">Inbar Mosseri</a></td>
+	  <td><a href="http://www.weizmann.ac.il/math/irani/">Michal Irani</a></td>
+	</tr><tr>
+	  <td style="padding-top:20px;"><small><sup>*</sup>Equal contribution.</small></td>
+	  <td colspan="2" width="50%" style="padding-top:20px;"><center><a href="https://research.google/"><img src="images/google_research.svg" style="height:25px;" /></a></center></td>
+	  <td style="padding-top:20px;"></td>
+	</tr>
+      </table><br />
+      <table class="demo1" onmouseenter="moving = false;" onmouseleave="moving = true;">
+	<tr>
+	  <td style="width:5%;font-size:150%;" valign="top"><center><div style="height:300px;position:relative;"><a href="#" onclick="move(-1);" class="btn" style="position:absolute;top:147px;">&#9664;</a></div></center></td>
+	  <td style="width:90%;">
+	    <center><div class="carousel">
+		<table id="dog_table" class="carousel_table" style="left:0px;">
+		  <tr><td><b>Input Image</b></td><td></td><td><b>Edited Image</b></td></tr>
+		  <tr>
+		    <td><img src="images/demo1/dog2.png" /></td>
+		    <td><center>&rightarrow;</center></td>
+		    <td><div class="img-stack">
+			<img src="images/demo1/dog2_A photo of a sitting dog.png" id="dog_1" class="active" />
+			<img src="images/demo1/dog2_A photo of a jumping dog.png" id="dog_2" />
+			<img src="images/demo1/dog2_A dog playing with a toy.png" id="dog_3" />
+			<div class="overlay" id="dog_overlay"></div>
+		    </div></td>
+		  </tr>
+		  <tr>
+		    <td colspan="3" class="prompt">"A photo of a <a href="#" id="dog_text_1" onclick="activate('dog', 1, 3);" class="active">sitting</a> <a href="#" id="dog_text_2" onclick="activate('dog', 2, 3);">jumping</a> dog <a href="#" id="dog_text_3" onclick="activate('dog', 3, 3);">playing with a toy</a>."</td>
+		  </tr>
+		</table>
+		<table id="person_table" class="carousel_table" style="left:650px;">
+		  <tr><td><b>Input Image</b></td><td></td><td><b>Edited Image</b></td></tr>
+		  <tr>
+		    <td><img src="images/demo1/person.png" /></td>
+		    <td><center>&rightarrow;</center></td>
+		    <td><div class="img-stack">
+			<img src="images/demo1/person_A person giving a thumbs up.png" id="person_1" class="active" />
+			<img src="images/demo1/person_A person with crossed arms.png" id="person_2" />
+			<img src="images/demo1/person_A person with their hands on hips.png" id="person_3" />
+			<div class="overlay" id="person_overlay"></div>
+		    </div></td>
+		  </tr>
+		  <tr>
+		    <td colspan="3" class="prompt">"A person <a href="#" id="person_text_1" onclick="activate('person', 1, 3);" class="active">giving the thumbs up</a> <a href="#" id="person_text_2" onclick="activate('person', 2, 3);">with crossed arms</a> <a href="#" id="person_text_3" onclick="activate('person', 3, 3);">with their hands on hips</a>."</td>
+		  </tr>
+		</table>
+		<table id="cat_table" class="carousel_table" style="left:1300px;">
+		  <tr><td><b>Input Image</b></td><td></td><td><b>Edited Image</b></td></tr>
+		  <tr>
+		    <td><img src="images/demo1/cat1.png" /></td>
+		    <td><center>&rightarrow;</center></td>
+		    <td><div class="img-stack">
+			<img src="images/demo1/cat1_A photo of a cat wearing a hat.png" id="cat_1" />
+			<img src="images/demo1/cat1_A photo of a cat wearing an apron.png" id="cat_2" />
+			<img src="images/demo1/cat1_A cat wearing a necklace.png" id="cat_3" class="active" />
+			<div class="overlay" id="cat_overlay"></div>
+		    </div></td>
+		  </tr>
+		  <tr>
+		    <td colspan="3" class="prompt">"A cat wearing <a href="#" id="cat_text_1" onclick="activate('cat', 1, 3);">a hat</a> <a href="#" id="cat_text_2" onclick="activate('cat', 2, 3);">an apron</a> <a href="#" id="cat_text_3" onclick="activate('cat', 3, 3);" class="active">a necklace</a>."</td>
+		  </tr>
+		</table>
+		<table id="cake_table" class="carousel_table" style="left:1950px;">
+		  <tr><td><b>Input Image</b></td><td></td><td><b>Edited Image</b></td></tr>
+		  <tr>
+		    <td><img src="images/demo1/cake2.png" /></td>
+		    <td><center>&rightarrow;</center></td>
+		    <td><div class="img-stack">
+			<img src="images/demo1/cake2_A photo of a strawberry cake.png" id="cake_1" />
+			<img src="images/demo1/cake2_A photo of a chocolate cake.png" id="cake_2" class="active" />
+			<img src="images/demo1/cake2_A photo of a pistachio cake.png" id="cake_3" />
+			<div class="overlay" id="cake_overlay"></div>
+		    </div></td>
+		  </tr>
+		  <tr>
+		    <td colspan="3" class="prompt">"A photo of a <a href="#" id="cake_text_1" onclick="activate('cake', 1, 3);">strawberry</a> <a href="#" id="cake_text_2" onclick="activate('cake', 2, 3);" class="active">chocolate</a> <a href="#" id="cake_text_3" onclick="activate('cake', 3, 3);">pistachio</a> cake."</td>
+		  </tr>
+		</table>
+		<table id="horse_table" class="carousel_table" style="left:2600px;">
+		  <tr><td><b>Input Image</b></td><td></td><td><b>Edited Image</b></td></tr>
+		  <tr>
+		    <td><img src="images/demo1/white_horse.png" /></td>
+		    <td><center>&rightarrow;</center></td>
+		    <td><div class="img-stack">
+			<img src="images/demo1/white_horse_A cartoon of a horse.png" id="horse_1" class="active" />
+			<img src="images/demo1/white_horse_A brown horse in a grass field.png" id="horse_2" />
+			<img src="images/demo1/white_horse_A horse with a saddle.png" id="horse_3" />
+			<div class="overlay" id="horse_overlay"></div>
+		    </div></td>
+		  </tr>
+		  <tr>
+		    <td colspan="3" class="prompt">"A <a href="#" id="horse_text_1" onclick="activate('horse', 1, 3);" class="active">cartoon of a horse</a> <a href="#" id="horse_text_2" onclick="activate('horse', 2, 3);">brown horse in a grass field</a> <a href="#" id="horse_text_3" onclick="activate('horse', 3, 3);">horse with a saddle</a>."</td>
+		  </tr>
+		</table>
+	      </div>
+	    </center>
+	  </td>
+	  <td style="width:5%;font-size:150%;" valign="top"><center><div style="height:300px;position:relative;"><a href="#" onclick="move(1);" class="btn" style="position:absolute;top:147px;">&#9658;</a></div></center></td>
+	</tr>
+      </table>
+      <span style="font-size:110%;">Imagic edits a single real-world image using a target text prompt. It can apply complex non-rigid changes.</span><br /><br />
+      <b><a href="https://arxiv.org/abs/2210.09276" class="lnk">arXiv</a></b>&nbsp;&nbsp;|&nbsp;&nbsp;<b><a href="https://arxiv.org/pdf/2210.09276.pdf" class="lnk">PDF</a></b>
+    </center>
+    <br />
+    <div id="abstract" style="border-top:1px solid gray;">
+    <h2>Abstract</h2>
+    <p>
+    Text-conditioned image editing has recently attracted considerable interest. However, most methods are currently either limited to specific editing types (<i>e.g.</i>, object overlay, style transfer), or apply to synthetically generated images, or require multiple input images of a common object. In this paper we demonstrate, for the very first time, the ability to apply complex (<i>e.g.</i>, non-rigid) text-guided semantic edits to a single real image. For example, we can change the posture and composition of one or multiple objects inside an image, while preserving its original characteristics. Our method can make a standing dog sit down or jump, cause a bird to spread its wings, <i>etc.</i> &mdash; each within its single high-resolution natural image provided by the user. Contrary to previous work, our proposed method requires only a single input image and a target text (the desired edit). It operates on real images, and does not require any additional inputs (such as image masks or additional views of the object). Our method, which we call "Imagic", leverages a pre-trained text-to-image diffusion model for this task. It produces a text embedding that aligns with both the input image and the target text, while fine-tuning the diffusion model to capture the image-specific appearance. We demonstrate the quality and versatility of our method on numerous inputs from various domains, showcasing a plethora of high quality complex semantic image edits, all within a single unified framework.
+    </p>
+    </div>
+    <br />
+    <div id="examples" style="border-top:1px solid gray;">
+    <h2>Additional Examples</h2>
+    <center>
+      <img src="images/results.png" style="width:90%;" />
+    </center>
+    </div>
+    <br />
+    <div id="method" style="border-top:1px solid gray;">
+    <h2>Method</h2>
+    <center>
+      <img src="images/method.png" style="width:80%;" />
+    </center><br />
+    Given a real image and a target text prompt, we encode the target text and get the initial text embedding \(e_{tgt}\), then optimize it to reconstruct the input image, obtaining \(e_{opt}\). We then fine-tune the generative model to improve fidelity to the input image while fixing \(e_{opt}\). Finally, we interpolate \(e_{opt}\) with \(e_{tgt}\) to generate the edit result.
+    </div>
+    <br />
+    <div id="paper" style="border-top:1px solid gray;">
+    <h2>Paper</h2>
+    <table><tr>
+	<td valign="middle"><img src="images/paper.png" style="width:200px;" /></td>
+	<td valign="top">
+	  <b>"Imagic: Text-Based Real Image Editing with Diffusion Models"</b>,<br /><br/>
+	  Bahjat Kawar<sup>*</sup>, Shiran Zada<sup>*</sup>, Oran Lang, Omer Tov, Huiwen Chang, Tali Dekel, Inbar Mosseri, and Michal Irani.<br /><br />
+	  <b>[</b><a href="https://arxiv.org/pdf/2210.09276.pdf" class="lnk">PDF</a><b>]</b>
+	</td>
+    </tr></table>
+    </div><br />
+    <div id="bibtex" style="border-top:1px solid gray;">
+    <h2>BibTeX</h2>
+    <center><pre><code>@article{kawar2022imagic,
+      title={Imagic: Text-Based Real Image Editing with Diffusion Models}, 
+      author={Kawar, Bahjat and Zada, Shiran and Lang, Oran and Tov, Omer and Chang, Huiwen and Dekel, Tali and Mosseri, Inbar and Irani, Michal},
+      year={2022},
+      journal={arXiv preprint arXiv:2210.09276}
+}</code></pre></center>
+    </div>
+</div></center>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
