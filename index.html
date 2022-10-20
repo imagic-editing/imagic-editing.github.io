@@ -149,14 +149,20 @@ text-align:left;
       }, 200);
   }
   var moving = true;
-  function autoMove() {
-      if(moving) {
+  var stopCounter = 0;
+  function autoMove(currCounter) {
+      if(moving && currCounter >= stopCounter) {
 	  move(1);
+          setTimeout(autoMove, 4000, stopCounter);
       }
-      setTimeout(autoMove, 4000);
   }
   function beginMoving() {
-      setTimeout(autoMove, 4000);
+      moving = true;
+      setTimeout(autoMove, 4000, stopCounter);
+  }
+  function stopMoving() {
+      moving = false;
+      stopCounter++;
   }
 </script>
 </head>
@@ -181,7 +187,7 @@ text-align:left;
 	  <td style="padding-top:20px;"></td>
 	</tr>
       </table><br />
-      <table class="demo1" onmouseenter="moving = false;" onmouseleave="moving = true;">
+      <table class="demo1" onmouseenter="stopMoving();" onmouseleave="beginMoving();">
 	<tr>
 	  <td style="width:5%;font-size:150%;" valign="top"><center><div style="height:300px;position:relative;"><a href="#" onclick="move(-1);" class="btn" style="position:absolute;top:147px;">&#9664;</a></div></center></td>
 	  <td style="width:90%;">
