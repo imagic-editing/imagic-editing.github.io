@@ -111,6 +111,24 @@ white-space: break-spaces;
 width:80%;
 text-align:left;
 }
+td.gif {
+    width: 33%;
+    font-family: monospace;
+    font-size: 120%;
+}
+.dl_link, .dl_link td {
+    color: black;
+    text-decoration: none;
+    font-size: 120%;
+}
+.dl_link, .dl_link table {
+    border-radius: 5px;
+    background-color: none;
+}
+.dl_link:hover, .dl_link:hover * {
+    color: #404040 !important;
+    background-color: #d9d9d9 !important;
+}
 @media only screen and (max-width: 930px) {
     .content { width:100% !important; }
 }
@@ -153,12 +171,12 @@ text-align:left;
   function autoMove(currCounter) {
       if(moving && currCounter >= stopCounter) {
 	  move(1);
-          setTimeout(autoMove, 4000, stopCounter);
+          setTimeout(autoMove, 5000, stopCounter);
       }
   }
   function beginMoving() {
       moving = true;
-      setTimeout(autoMove, 4000, stopCounter);
+      setTimeout(autoMove, 5000, stopCounter);
   }
   function stopMoving() {
       moving = false;
@@ -292,7 +310,14 @@ text-align:left;
     <div id="examples" style="border-top:1px solid gray;">
     <h2>Additional Examples</h2>
     <center>
-      <img src="images/results.png" style="width:90%;" />
+      <img src="images/results.png" style="width:90%;" /><br /><br />
+      <table style="width:90%;text-align:center;">
+	<tr>
+	  <td class="gif"><img src="images/gifs/wooden_chair.gif" style="width:80%;" /><br />"A wooden chair"</td>
+	  <td class="gif"><img src="images/gifs/colorful_tulips.gif" style="width:80%;" /><br />"A vase of colorful tulips"</td>
+	  <td class="gif"><img src="images/gifs/wedding_cake.gif" style="width:80%;" /><br />"A white wedding cake"</td>
+	</tr>
+      </table>
     </center>
     </div>
     <br />
@@ -302,6 +327,14 @@ text-align:left;
       <img src="images/method.png" style="width:80%;" />
     </center><br />
     Given a real image and a target text prompt, we encode the target text and get the initial text embedding \(e_{tgt}\), then optimize it to reconstruct the input image, obtaining \(e_{opt}\). We then fine-tune the generative model to improve fidelity to the input image while fixing \(e_{opt}\). Finally, we interpolate \(e_{opt}\) with \(e_{tgt}\) to generate the edit result.
+    </div>
+    <br />
+    <div id="tedbench" style="border-top:1px solid gray;">
+    <h2>TEdBench</h2>
+    We introduce <i>TEdBench</i> (Textual Editing Benchmark), a novel collection of 100 pairs of input images and target texts describing a desired complex non-rigid edit. We hope that future research will benefit from TEdBench as a standardized evaluation set for this task. To that end, we make TEdBench publicly available, along with Imagic's results to allow for comparisons.<br /><br />
+    <center>
+      <a target="_blank" href="https://github.com/imagic-editing/imagic-editing.github.io/tree/main/tedbench" class="dl_link"><table><tr><td verticalalign="middle"><img src="images/github_icon.png" style="width:50px;" /></td><td verticalalign="middle">&nbsp;TEdBench</td></tr></table></a>
+    </center>
     </div>
     <br />
     <div id="paper" style="border-top:1px solid gray;">

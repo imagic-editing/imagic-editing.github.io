@@ -1,0 +1,273 @@
+[
+  {
+    "img_name": "dog2_standing.png",
+    "target_text": "A photo of a sitting dog."
+  },
+  {
+    "img_name": "dog2_standing.png",
+    "target_text": "A photo of a jumping dog."
+  },
+  {
+    "img_name": "dog2_standing.png",
+    "target_text": "A photo of a breakdancing dog."
+  },
+  {
+    "img_name": "dog2_standing.png",
+    "target_text": "A photo of a dog laying down."
+  },
+  {
+    "img_name": "dog2_standing.png",
+    "target_text": "A photo of a yawning dog."
+  },
+  {
+    "img_name": "tennis_ball.jpeg",
+    "target_text": "A photo of a tomato in a blue tennis court."
+  },
+  {
+    "img_name": "zebra.jpeg",
+    "target_text": "A photo of a horse."
+  },
+  {
+    "img_name": "red_car.jpeg",
+    "target_text": "A photo of a car in Manhattan."
+  },
+  {
+    "img_name": "bird.jpeg",
+    "target_text": "A photo of a bird spreading wings."
+  },
+  {
+    "img_name": "bird.jpeg",
+    "target_text": "A photo of a bird leaning down."
+  },
+  {
+    "img_name": "bird.jpeg",
+    "target_text": "A photo of a bird cleaning itself."
+  },
+  {
+    "img_name": "box.jpeg",
+    "target_text": "A photo of an open box."
+  },
+  {
+    "img_name": "cat.jpeg",
+    "target_text": "A photo of a cat wearing a hat."
+  },
+  {
+    "img_name": "cat.jpeg",
+    "target_text": "A photo of a cat in a grass field."
+  },
+  {
+    "img_name": "cat_3.jpeg",
+    "target_text": "A photo of a cat wearing a hat."
+  },
+  {
+    "img_name": "cat_3.jpeg",
+    "target_text": "A photo of a cat wearing an apron."
+  },
+  {
+    "img_name": "cat_3.jpeg",
+    "target_text": "A photo of a cat yawning."
+  },
+  {"img_name": "dog_with_shirt.jpg", "target_text": "A dog smoking a cigar."},
+  {
+    "img_name": "dog_01.jpeg",
+    "target_text": "A photo of a sitting dog."
+  },
+  {
+    "img_name": "dog_01.jpeg",
+    "target_text": "A photo of a jumping dog."
+  },
+  {
+    "img_name": "vase_01.jpeg",
+    "target_text": "A photo of a vase of red roses."
+  },
+  {
+    "img_name": "vase_01.jpeg",
+    "target_text": "A photo of a vase of colorful tulips."
+  },
+  {
+    "img_name": "vase_01.jpeg",
+    "target_text": "A photo of a vase of daisies."
+  },
+  {
+    "img_name": "door.jpeg",
+    "target_text": "A photo of an open door."
+  },
+  {
+    "img_name": "door.jpeg",
+    "target_text": "A photo of a door for room number 17."
+  },
+  {
+    "img_name": "couple_beach.jpeg",
+    "target_text": "A photo of a couple holding their hands on a beach."
+  },
+  {
+    "img_name": "open_book.jpeg",
+    "target_text": "A photo of a closed book."
+  },
+  {
+    "img_name": "empty_street.jpeg",
+    "target_text": "A busy congested street."
+  },
+  {
+    "img_name": "black_shirt.jpeg",
+    "target_text": "A person with crossed arms."
+  },
+  {
+    "img_name": "black_shirt.jpeg",
+    "target_text": "A person clapping their hands."
+  },
+  {
+    "img_name": "black_shirt.jpeg",
+    "target_text": "A person giving a thumbs up."
+  },
+  {
+    "img_name": "bear3.jpeg",
+    "target_text": "A black bear is walking in the grass next to red flowers."
+  },
+  {
+    "img_name": "milk_cookie.jpeg",
+    "target_text": "A cookie next to a glass of juice."
+  },
+  {
+    "img_name": "chibi.jpeg",
+    "target_text": "Image of a cat wearing a floral shirt."
+  },
+  {
+    "img_name": "giraffe.jpeg",
+    "target_text": "A giraffe with a short neck."
+  },
+  {
+    "img_name": "giraffe.jpeg",
+    "target_text": "A photo of a giraffe eating the grass below."
+  },
+  {
+    "img_name": "giraffe.jpeg",
+    "target_text": "A photo of a sitting giraffe."
+  },
+  {
+    "img_name": "apples.jpeg",
+    "target_text": "A basket of oranges."
+  },
+  {
+    "img_name": "apples.jpeg",
+    "target_text": "A bowl of apples."
+  },
+  {
+    "img_name": "new_cat_3.jpeg",
+    "target_text": "A photo of a sleeping cat."
+  },
+  {
+    "img_name": "new_cat_3.jpeg",
+    "target_text": "A photo of a standing cat."
+  },
+  {
+    "img_name": "new_cat_3.jpeg",
+    "target_text": "A photo of a jumping cat."
+  },
+  {
+    "img_name": "new_cat_3.jpeg",
+    "target_text": "A photo of a cat facing the camera."
+  },
+  {
+    "img_name": "new_cat_3.jpeg",
+    "target_text": "A photo of a cat from behind."
+  },
+  {
+    "img_name": "chair_1.jpeg",
+    "target_text": "A knocked down chair."
+  },
+  {
+    "img_name": "chair_1.jpeg",
+    "target_text": "A photo of a chair sawed in half."
+  },
+  {
+    "img_name": "flamingo.jpeg",
+    "target_text": "A sitting flamingo."
+  },
+  {
+    "img_name": "banana_1.jpeg",
+    "target_text": "A photo of a sliced banana."
+  },
+  {
+    "img_name": "banana_1.jpeg",
+    "target_text": "A photo of a rotten banana."
+  },
+  {
+    "img_name": "banana_1.jpeg",
+    "target_text": "A photo of a peeled banana."
+  },
+  {
+    "img_name": "cake_1.jpeg",
+    "target_text": "A photo of a birthday cake."
+  },
+  {
+    "img_name": "tree_1.jpeg",
+    "target_text": "A photo of a dead tree."
+  },
+  {
+    "img_name": "tree_1.jpeg",
+    "target_text": "A photo of a fruitful tree."
+  },
+  {
+    "img_name": "tree_1.jpeg",
+    "target_text": "A photo of a tree. Taken in autumn."
+  },
+  {
+    "img_name": "tree_1.jpeg",
+    "target_text": "A photo of a willow tree."
+  },
+  {
+    "img_name": "teddy_1.jpeg",
+    "target_text": "A photo of a teddy bear doing pushups."
+  },
+  {
+    "img_name": "teddy_1.jpeg",
+    "target_text": "A photo of a standing teddy bear."
+  },
+  {
+    "img_name": "teddy_1.jpeg",
+    "target_text": "A photo of a dancing teddy bear."
+  },
+  {"img_name": "teddy_1.jpeg", "target_text": "A torn up teddy bear."},
+  {"img_name": "white_horse1.png", "target_text": "A white horse in a grass field."},
+  {"img_name": "white_horse2.png", "target_text": "A jumping horse."},
+  {"img_name": "prague.png", "target_text": "A cyclist riding in a street."},
+  {"img_name": "prague.png", "target_text": "A photo of a coffee house in a street."},
+  {"img_name": "bird.png", "target_text": "A bird looking backwards."},
+  {"img_name": "goat_and_cat.jpg", "target_text": "A goat and a cat hugging."},
+  {"img_name": "bird.jpeg", "target_text": "A bird eating a fish."},
+  {"img_name": "door.jpeg", "target_text": "A door with a pet enterance."},
+  {"img_name": "elephant.jpeg", "target_text": "A person riding on an elephant."},
+  {"img_name": "prague.png", "target_text": "A parade on a street."},
+  {"img_name": "road1.png", "target_text": "An image of a post apocalyptic road."},
+  {"img_name": "red_car.jpeg", "target_text": "A race car."},
+  {"img_name": "white_horse1.png", "target_text": "A snow princess next to a unicorn."},
+  {"img_name": "white_horse2.png", "target_text": "A circus horse."},
+  {"img_name": "white_horse2.png", "target_text": "A horse in a show jumping attire."},
+  {"img_name": "egg_tree.jpeg", "target_text": "A cracked egg."},
+  {"img_name": "two_dogs_with_checkered_shirts1.jpg", "target_text": "Two dogs growling at each other."},
+  {"img_name": "pizza1.png", "target_text": "Pizza with pepperoni."},
+  {"img_name": "pizza1.png", "target_text": "Pizza with pineapple."},
+  {"img_name": "pizza1.png", "target_text": "A half eaten pizza."},
+  {"img_name": "black_shirt.jpeg", "target_text": "A person in a greetting pose to Namaste hands."},
+  {"img_name": "goat_and_cat.jpg", "target_text": "A goat to the right of a cat."},
+  {"img_name": "goat_and_cat.jpg", "target_text": "A goat jumping over a cat."},
+  {"img_name": "goat_and_cat.jpg", "target_text": "A goat hits a cat."},
+  {"img_name": "banana_1.jpeg", "target_text": "Two bananas."},
+  {"img_name": "bear3.jpeg", "target_text": "A standing bear."},
+  {"img_name": "bear3.jpeg", "target_text": "A bear eating a fish."},
+  {"img_name": "elephant.jpeg", "target_text": "An elephant in a circus."},
+  {"img_name": "elephant.jpeg", "target_text": "A standing elephant."},
+  {"img_name": "road1.png", "target_text": "A photo of a traffic jam."},
+  {"img_name": "red_car.jpeg", "target_text": "A convertable car."},
+  {"img_name": "red_car.jpeg", "target_text": "A car in the year 1940."},
+  {"img_name": "teddy_1.jpeg", "target_text": "A teddy bear holding a cup."},
+  {"img_name": "tree_1.jpeg", "target_text": "An apple tree."},
+  {"img_name": "drinking_horse.png", "target_text": "A horse raising its head."},
+  {"img_name": "white_horse2.png", "target_text": "A standing horse."},
+  {"img_name": "white_horse2.png", "target_text": "A girl riding a horse."},
+  {"img_name": "white_horse2.png", "target_text": "A photo of a zebra."},
+  {"img_name": "vase_01.jpeg", "target_text": "A vase of flowers filled with green water."},
+  {"img_name": "vase_01.jpeg", "target_text": "A pot of flowers."},
+  {"img_name": "bird-g83440b9c4_1920.jpg", "target_text": "Two kissing parrots."}
+]
